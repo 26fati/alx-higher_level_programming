@@ -6,5 +6,5 @@ if __name__ == "__main__":
 
     nmaes = dir(hidden_4)
     for name in names:
-        if not name.startwith("_"):
+        if not name.startwith("__"):
             print(name)
