@@ -1,55 +1,61 @@
 #include "lists.h"
 
-/**
- * is_palindrome - a function in C that checks
- * if a singly linked list is a palindrome.
- *
- * @head: a head of list.
- *
- * Return: 0 if it is not a palindrome, 1 if it is a palindrome.
- */
 int is_palindrome(listint_t **head)
 {
-	listint_t *ptr;
-	int len, index = 0;
+    listint_t *slow = *head, *fast = *head, *prev = NULL, *temp;
+    listint_t *second_half, *mid = NULL;
+    int result = 1;
 
-	len = findlength(head);
-	int arr[len];
+    if (*head != NULL && (*head)->next != NULL)
+    {
+        // Use slow and fast pointers to find the middle of the linked list
+        while (fast != NULL && fast->next != NULL)
+        {
+            fast = fast->next->next;
+            prev = slow;
+            slow = slow->next;
+        }
 
-	ptr = *head;
+        // If the linked list has odd number of elements, skip the middle node
+        if (fast != NULL)
+        {
+            mid = slow;
+            slow = slow->next;
+        }
 
-	while (ptr)
-	{
-		arr[index++] = ptr->n;
-		ptr = ptr->next;
-	}
-	for (index = 0; index < (len / 2); index++)
-	{
-		if (arr[index] != arr[len - index - 1])
-		{
-			return (0);
-		}
-	}
-	return (1);
-}
+        // Reverse the second half of the linked list
+        second_half = slow;
+        prev->next = NULL;
+        while (second_half != NULL)
+        {
+            temp = second_half->next;
+            second_half->next = slow;
+            slow = second_half;
+            second_half = temp;
+        }
 
-/**
- * findlength - a function that find the length of the list.
- *
- * @head: the head of the list.
- *
- * Return: return the length of the list.
- */
-int findlength(listint_t **head)
-{
-	listint_t *curr;
-	int count = 0;
+        // Compare the first half and reversed second half
+        listint_t *first_half = *head;
+        while (slow != NULL)
+        {
+            if (first_half->n != slow->n)
+            {
+                result = 0;
+                break;
+            }
+            first_half = first_half->next;
+            slow = slow->next;
+        }
 
-	curr = *head;
-	while (curr)
-	{
-		count++;
-		curr = curr->next;
-	}
-	return (count);
+        // Restore the linked list to its original state
+        prev->next = mid;
+        while (mid != NULL)
+        {
+            temp = mid->next;
+            mid->next = second_half;
+            second_half = mid;
+            mid = temp;
+        }
+    }
+    return result;
 }
