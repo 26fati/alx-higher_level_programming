@@ -10,46 +10,65 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *ptr;
-	int len, index = 0;
+	listint_t *first_start = *head;
+	listint_t *p = *head;
+	listint_t *q = *head;
+	listint_t *second_start;
 
-	len = findlength(head);
-	int arr[len];
-
-	ptr = *head;
-
-	while (ptr)
+	if (p->next == NULL)
+		return (1);
+	while (1)
 	{
-		arr[index++] = ptr->n;
-		ptr = ptr->next;
-	}
-	for (index = 0; index < (len / 2); index++)
-	{
-		if (arr[index] != arr[len - index - 1])
+		p = p->next->next;
+		if (p->next == NULL)
 		{
-			return (0);
+			second_start = p->next->next;
+			break;
 		}
+		if (p == NULL)
+		{
+			second_start = p->next;
+			break;
+		}
+		q = q->next;
+	}
+	q->next = NULL;
+	second_start = reverse_listint(&second_start);
+	while (first_start && second_start)
+	{
+		if (first_start->n == second_start->n)
+		{
+			first_start = first_start->next;
+			second_start = second_start->next;
+		}
+		else
+			return (0);
 	}
 	return (1);
+
 }
 
-/**
- * findlength - a function that find the length of the list.
- *
- * @head: the head of the list.
- *
- * Return: return the length of the list.
- */
-int findlength(listint_t **head)
-{
-	listint_t *curr;
-	int count = 0;
 
-	curr = *head;
-	while (curr)
+/**
+ * reverse_listint - Reverses a listint_t list.
+ * @head: A pointer to the address of
+ *        the head of the list_t list.
+ *
+ * Return: A pointer to the first node of the reversed list.
+ */
+listint_t *reverse_listint(listint_t **head)
+{
+	listint_t *previous = NULL, *current;
+
+	if (*head == NULL)
+		return (NULL);
+	while (*head != NULL)
 	{
-		count++;
-		curr = curr->next;
+		current = (*head)->next;
+		(*head)->next = previous;
+		previous = *head;
+		*head = current;
 	}
-	return (count);
+	(*head) = previous;
+	return (*head);
 }
