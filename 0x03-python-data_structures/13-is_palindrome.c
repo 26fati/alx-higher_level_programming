@@ -33,7 +33,7 @@ int is_palindrome(listint_t **head)
 		q = q->next;
 	}
 	q->next = NULL;
-	second_start = reverse_listint(&second_start);
+	reverse_listint(&second_start);
 	while (first_start && second_start)
 	{
 		if (first_start->n == second_start->n)
@@ -72,3 +72,4 @@ listint_t *reverse_listint(listint_t **head)
 	(*head) = previous;
 	return (*head);
 }
+
