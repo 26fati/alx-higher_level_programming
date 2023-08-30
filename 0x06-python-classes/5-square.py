@@ -12,6 +12,7 @@ Public instance method: def my_print(self): that prints in stdout the square wit
 if size is equal to 0, print an empty line '''
 
 class Square():
+     """square class with it's size and proper validation"""
     def __init__(self, size=0):
         self.__size = size
 
