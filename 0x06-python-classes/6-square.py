@@ -4,21 +4,24 @@
 
 class Square():
     """square class with it's size and proper validation"""
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         self.__size = size
-
-    """method to calculate the area of a square"""
+        self.__position = position
 
     def area(self):
         return self.__size ** 2
 
-    """get the private property"""
-
     @property
     def size(self):
         return self.__size
-    
-    """setter for size"""
+
+    @property
+    def position(self):
+        return self.__position = position
+
+    @position.setter
+    def position(self, value):
+
 
     @size.setter
     def size(self, value):
@@ -28,10 +31,9 @@ class Square():
             raise ValueError("size must be >= 0")
         self.__size = value
 
-     """print the square"""
-
     def my_print(self):
         if self.__size = 0:
             print("")
         for i in range(self.__size):
             print("#" * self.__size)
+
