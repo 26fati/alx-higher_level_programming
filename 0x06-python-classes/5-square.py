@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """class Square that defines a square"""
 
-class Square():
-     """square class with it's size and proper validation"""
 
+class Square():
+    """square class with it's size and proper validation"""
     def __init__(self, size=0):
         self.__size = size
 
@@ -27,4 +27,3 @@ class Square():
             print("")
         for i in range(self.__size):
             print("#" * self.__size)
-
