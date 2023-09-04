@@ -10,6 +10,7 @@ class Rectangle:
     '''
 
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """Initialize a new Rectangle.
@@ -71,7 +72,7 @@ class Rectangle:
             return ("")
         height = self.__height
         width = self.__width
-        return '\n'.join("#" * width for i in range(height))
+        return '\n'.join(str(self.print_symbol) * width for i in range(height))
 
     def __repr__(self):
         ''' return a string representation of the rectangl'''
