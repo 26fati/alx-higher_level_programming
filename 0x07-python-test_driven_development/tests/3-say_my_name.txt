@@ -1,0 +1,38 @@
+The ``3-say_my_name.py`` module
+======================
+
+This module define a function that prints My name is <first name> <last name>
+
+Using ``say_my_name``
+-------------------
+
+say_my_name(..) is a function that prints My name is <first name> <last name>.
+
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+>>> say_my_name("Fatima", "Zohra")
+My name is Fatima Zohra
+
+The function works with strings or empy strings.
+
+>>> say_my_name("fatima", "")
+My name is fatima 
+
+>>> say_my_name("", "zohra")
+My name is  zohra
+
+>>> say_my_name("", "")
+My name is  
+
+the function doesn't work with integer values or without arguments.
+
+>>> say_my_name("abebe", 4)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+>>> say_my_name(5, 44)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+>>> say_my_name()
+Traceback (most recent call last):
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'

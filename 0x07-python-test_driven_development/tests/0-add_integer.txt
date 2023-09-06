@@ -1,0 +1,59 @@
+The ``0-add_integer.py`` module
+======================
+
+This module define a function that adds two integrs.
+
+Using ``add_integer``
+-------------------
+``add_integer(..) a function that returns the addition of two integers. 
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(54, 89)
+    143
+
+The function works with integer values.
+
+    >>> add_integer(-45, 45)
+    0
+
+    >>> add_integer(-5, -9)
+    -14
+
+The function works with floiting-point values.
+
+    >>> add_integer(0.5, 9.8)
+    9
+
+    >>> add_integer(float(5), float(67))
+    72
+
+The function works with one arguments because the second arguments is optional. By default it is 98.
+
+    >>> add_integer(78)
+    176
+
+===========
+ 
+The function don't work in these cases because either argument is not integer or float, a TypeError is raised:
+
+    >>> add_integer(78, True)
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+    >>> add_integer(76, 'string')
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+if both arguments are neither integers nor floats, a TypeError message is printed for the first arguments. 
+
+    >>> add_integer('string1', 'string2')
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer(-77, -09)
+    Traceback (most recent call last):
+    SyntaxError: leading zeros in decimal integer literals are not permitted; use an 0o prefix for octal integers
+
+    >>> add_integer(77j5, 8)
+    Traceback (most recent call last):
+    SyntaxError: invalid imaginary literal    
