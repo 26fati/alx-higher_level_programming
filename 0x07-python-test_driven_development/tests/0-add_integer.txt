@@ -56,4 +56,4 @@ if both arguments are neither integers nor floats, a TypeError message is printe
 
     >>> add_integer(77j5, 8)
     Traceback (most recent call last):
-    SyntaxError: invalid imaginary literal    
+    SyntaxError: invalid imaginary literal
