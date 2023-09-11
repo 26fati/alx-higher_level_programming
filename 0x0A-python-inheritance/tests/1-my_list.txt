@@ -44,3 +44,8 @@ TypeError: 'NoneType' object is not iterable
 ['hello', 'hi', 'how', 'Are', 'You', '?']
 >>> my_list.print_sorted()
 ['?', 'Are', 'You', 'hello', 'hi', 'how']
+
+>>> my_list = MyList([1, "Betty", "Holberton", 5])
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+TypeError: '<' not supported between instances of 'str' and 'int'
