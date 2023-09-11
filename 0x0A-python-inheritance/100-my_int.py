@@ -3,6 +3,8 @@
 
 
 class MyInt(int):
+    ''' a class MyInt that inherits from int.'''
+
     def __eq__(self, value):
         """Override == opeartor with != behavior."""
         return super().__ne__(value)
