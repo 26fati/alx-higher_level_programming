@@ -13,6 +13,6 @@ if __name__ == "__main__":
     try:
         argv = load_from_json_file(filename)
     except FileNotFoundError:
-        save_to_json_file([], filename)
+        pass
     argv = sys.argv[1:]
     save_to_json_file(argv, filename)
