@@ -11,6 +11,11 @@ def pascal_triangle(n):
         return []
     result = []
     for i in range(n):
-        input = [11 ** i]
-        result.append(list(map(int, str(input[0]))))
+        lst = [1]
+        if i > 0:
+            prev_row = result[i - 1]
+            for j in range(1, i):
+                lst.append(prev_row[j - 1] + prev_row[j])
+            lst.append(1)
+        result.append(lst)
     return result
