@@ -11,9 +11,9 @@ if __name__ == "__main__":
 
 filename = "add_item.json"
 
-try:
-    argv = load_from_json_file(filename)
-except FileNotFoundError:
-    argv = sys.argv[1:]
+# try:
+#    argv = load_from_json_file(filename)
+# except FileNotFoundError:
+argv = sys.argv[1:]
 
 save_to_json_file(argv, filename)
