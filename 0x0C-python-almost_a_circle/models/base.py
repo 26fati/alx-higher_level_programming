@@ -35,9 +35,9 @@ class Base:
             for obj in list_objs:
                 dictionary = obj.to_dictionary()
                 lst.append(dictionary)
-            json_dictionary = cls.to_json_string(lst)
-            with open(filename, "w") as f:
-                f.write(json_dictionary)
+        json_dictionary = cls.to_json_string(lst)
+        with open(filename, "w") as f:
+            f.write(json_dictionary)
 
     @staticmethod
     def from_json_string(json_string):
