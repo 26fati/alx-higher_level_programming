@@ -86,8 +86,11 @@ class Rectangle(Base):
 
     def __str__(self):
         """ str special method """
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} "\
-               f"- {self.width}/{self.height}"
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, 
+                                                    self.__x, 
+                                                    self.__y,
+                                                    self.__width,
+                                                    self.__height)
 
     def update(self, *args, **kwargs):
         """ update method """

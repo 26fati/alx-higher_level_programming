@@ -63,7 +63,7 @@ class TestBase(unittest.TestCase):
     def test_access_private_attr(self):
         rec = Rectangle(2, 4)
         # with self.assertRaises(AttributeError):
-        rec.width
+        rec.__width
 
     def test_set_private_attr(self):
         rec = Rectangle(4, 3, 4, 5, 3)
