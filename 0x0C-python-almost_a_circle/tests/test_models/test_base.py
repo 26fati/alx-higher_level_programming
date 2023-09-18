@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+""" Module for test Base class """
 import unittest
 import json
 import os
@@ -10,6 +10,8 @@ from models.base import Base
 
 
 class TestBase(unittest.TestCase):
+    """ Suite to test Base class """
+
     def setUp(self):
         # Create some instances of Base for testing
         Base._Base__nb_objects = 0
@@ -83,6 +85,7 @@ class TestBase(unittest.TestCase):
         with open("Square.json", "r") as f:
             data = f.read()
             self.assertEqual(data, res)
+
 
 if __name__ == "__main__":
     unittest.main()
