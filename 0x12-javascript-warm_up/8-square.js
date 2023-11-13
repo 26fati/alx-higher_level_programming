@@ -4,7 +4,7 @@
 
 const argv = process.argv;
 const x = argv[2];
-const str = 'x';
+const str = 'X';
 if (!x || isNaN(x)) { console.log('Missing size'); } else {
   for (let i = 0; i < x; i++) { console.log(str.repeat(x)); }
 }
