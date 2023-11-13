@@ -2,12 +2,9 @@
 
 // a script that prints a square.
 
-argv = process.argv;
-let x = argv[2]
-let str = 'x';
-if (!x || isNaN(x))
-    console.log('Missing size');
-else {
-    for (let i = 0; i < x; i++)
-        console.log(str.repeat(x));
+const argv = process.argv;
+const x = argv[2];
+const str = 'x';
+if (!x || isNaN(x)) { console.log('Missing size'); } else {
+  for (let i = 0; i < x; i++) { console.log(str.repeat(x)); }
 }
