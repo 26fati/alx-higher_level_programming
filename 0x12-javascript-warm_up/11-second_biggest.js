@@ -6,6 +6,7 @@ const argv = process.argv;
 const arr = [];
 if (!argv[2] || argv.length === 3) { console.log('0'); } else {
   for (let i = 2; i < argv.length; i++) { arr.push(Number(argv[i])); }
-  arr.sort();
+  arr.sort((a, b) => a - b);
+  console.log(arr);
   console.log(arr[arr.length - 2]);
 }
