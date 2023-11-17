@@ -12,9 +12,9 @@ if __name__ == "__main__":
                                    sys.argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
-Session = sessionmaker(bind=engine)
-session = Session()
-for state in session.query(State).filter(State.name.like('%a%')).all():
-    session.delete(state)
-session.commit()
-session.close()
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    for state in session.query(State).filter(State.name.like('%a%')).all():
+        session.delete(state)
+    session.commit()
+    session.close()
