@@ -16,8 +16,8 @@ def find_peak(list_of_integers):
         return list_of_integers[0]
     # elif (list_of_integers[0] >= list_of_integers[1]):
     #     return list_of_integers[0]
-    # elif (list_of_integers[-1] >= list_of_integers[-2]):
-    #     return list_of_integers[-1]
+    elif (list_of_integers[-1] >= list_of_integers[-2]):
+        return list_of_integers[-1]
     else:
         low = 1
         high = n-1
