@@ -4,12 +4,12 @@ Usage: ./3-error_code.py <URL>
   - Handles HTTP errors.
 """
 import urllib.request
-from urllib.error import HTTPError
+import urllib.error
 import sys
 
 req = urllib.request.Request(sys.argv[1])
 try:
     with urllib.request.urlopen(req) as response:
         print(response.read().decode("UTF-8"))
-except HTTPError as e:
+except urllib.error.HTTPError as e:
     print('Error code: ', e.code)
