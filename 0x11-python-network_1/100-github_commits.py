@@ -10,6 +10,9 @@ if __name__ == "__main__":
     owner = sys.argv[2]
     url = f'https://api.github.com/repos/{owner}/{repo}/commits'
     r = requests.get(url)
-    for commit in r.json():
-        author = commit.get('commit').get('author').get('name')
-        print(f"{commit.get('sha')}: {author}")
+    try:
+        for commit in r.json():
+            author = commit.get('commit').get('author').get('name')
+            print(f"{commit.get('sha')}: {author}")
+    except AttributeError:
+        pass
