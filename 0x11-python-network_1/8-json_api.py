@@ -8,7 +8,7 @@ if __name__ == "__main__":
         value = {'q': sys.argv[1]}
     except IndexError:
         value = {'q': ''}
-    r = requests.post('http://52.204.190.21:5000/search_user', data=value)
+    r = requests.post('http://0.0.0.0:5000/search_user', data=value)
     try:
         response = r.json()
         if response == {}:
