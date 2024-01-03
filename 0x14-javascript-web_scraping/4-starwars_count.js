@@ -6,9 +6,11 @@ request(url, (err, req, body) => {
   let count = 0;
   const results = body.results;
   results.forEach(element => {
-    if (element.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
-      count++;
-    }
+    element.characters.forEach(ele => {
+      if (ele.endsWith('/18/')) {
+        count++;
+      }
+    });
   });
   console.log(err || count);
 });
